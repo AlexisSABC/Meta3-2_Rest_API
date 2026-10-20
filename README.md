@@ -18,7 +18,7 @@ Tras esto, debes crear los siguientes elementos para poder utilizar la base de d
 
 Finalmente, para poder crear las tablas y alimentar las tablas con datos previos, ejecutar lo siguiente:
 - pnpx sequelize-cli db:migrate
-- pnpm sequelize-cli db:seed:all
+- pnpx sequelize-cli db:seed:all
 
 ## Instrucciones de ejecucion
 Para poder ejecutar esta app, debes utilizar solamente el siguiente comando en consola
