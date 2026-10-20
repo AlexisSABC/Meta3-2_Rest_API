@@ -1,0 +1,21 @@
+{
+  "name": "esports-roster-api",
+  "version": "1.0.0",
+  "description": "API REST para gestión de jugadores y rosters de eSports",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "mysql2": "^3.24.6",
+    "sequelize": "^6.37.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "sequelize-cli": "^6.6.5"
+  }
+}

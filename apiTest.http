@@ -1,0 +1,123 @@
+### Variables Globales
+@baseUrl = http://localhost:3000/api/v1
+
+1. ENDPOINTS AUXILIARES
+### Health Check (Estado de la API)
+GET {{baseUrl}}/health
+
+### Listar Roles Válidos
+GET {{baseUrl}}/roles
+
+### Listar Estados Válidos
+GET {{baseUrl}}/estados
+
+### Listar Tipos de Roster
+GET {{baseUrl}}/tipos-roster
+
+2. MÓDULO DE JUGADORES
+### Listar Todos los Jugadores
+GET {{baseUrl}}/jugadores
+
+### Filtrar Jugadores (Rol, Estado, Búsqueda por Nickname)
+GET {{baseUrl}}/jugadores?rol=Mid&estado=activo&search=faker
+
+### Obtener Detalle de un Jugador por ID
+GET {{baseUrl}}/jugadores/1
+
+### Crear Jugador 1 (Faker - Mid)
+POST {{baseUrl}}/jugadores
+Content-Type: application/json
+
+{
+  "nickname": "TheFarker",
+  "nombre_real": "Player_User",
+  "pais": "Corea del Sur",
+  "rol": "Mid",
+  "estado": "activo"
+}
+
+### Crear Jugador 2 (Impact - Top)
+POST {{baseUrl}}/jugadores
+Content-Type: application/json
+
+{
+  "nickname": "Impact",
+  "nombre_real": "Jung Eon-yeong",
+  "pais": "Corea del Sur",
+  "rol": "Top",
+  "estado": "activo"
+}
+
+### Actualizar Jugador por ID
+PUT {{baseUrl}}/jugadores/1
+Content-Type: application/json
+
+{
+  "nickname": "Faker",
+  "nombre_real": "Lee Sang-hyeok",
+  "pais": "Corea del Sur",
+  "rol": "Mid",
+  "estado": "activo"
+}
+
+### Eliminar Jugador por ID
+DELETE {{baseUrl}}/jugadores/1
+
+3. MÓDULO DE ROSTERS
+### Listar Todos los Rosters
+GET {{baseUrl}}/rosters
+
+### Filtrar Rosters (Tipo y Temporada)
+GET {{baseUrl}}/rosters?tipo=Principal&temporada=2026
+
+### Obtener Detalle de un Roster (Incluye Jugadores Asignados)
+GET {{baseUrl}}/rosters/1
+
+### Crear un Nuevo Roster
+POST {{baseUrl}}/rosters
+Content-Type: application/json
+
+{
+  "nombre": "TL Principal",
+  "juego": "League of Legends",
+  "tipo": "Principal",
+  "temporada": "2026"
+}
+
+### Actualizar Roster
+PUT {{baseUrl}}/rosters/1
+Content-Type: application/json
+
+{
+  "nombre": "TL Principal 2026",
+  "juego": "League of Legends",
+  "tipo": "Principal",
+  "temporada": "2026"
+}
+
+### Eliminar Roster (Los jugadores permanecen intactos)
+DELETE {{baseUrl}}/rosters/1
+
+4. ASIGNACIÓN DE JUGADORES A ROSTERS
+### Listar Jugadores de un Roster Específico
+GET {{baseUrl}}/rosters/1/jugadores
+
+### Asignar Jugador a Roster (Prueba de RN-02 y RN-03)
+POST {{baseUrl}}/rosters/1/jugadores
+Content-Type: application/json
+
+{
+  "id_jugador": 1,
+  "rol_en_roster": "Titular"
+}
+
+### Cambiar Rol de un Jugador en el Roster (Titular / Suplente)
+PUT {{baseUrl}}/rosters/1/jugadores/1
+Content-Type: application/json
+
+{
+  "rol_en_roster": "Suplente"
+}
+
+### Quitar Jugador del Roster
+DELETE {{baseUrl}}/rosters/1/jugadores/1
